@@ -1,7 +1,7 @@
 package com.baseurak.AwesomeGreat;
 
-import com.baseurak.demo.post.Post;
-import com.baseurak.demo.post.PostService;
+import com.baseurak.AwesomeGreat.post.Post;
+import com.baseurak.AwesomeGreat.post.PostService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
