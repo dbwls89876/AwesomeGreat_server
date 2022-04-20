@@ -4,13 +4,9 @@ import com.baseurak.AwesomeGreat.post.Post;
 import com.baseurak.AwesomeGreat.post.PostService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 public class PostController {
@@ -21,11 +17,35 @@ public class PostController {
     ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
     PostService postService = ac.getBean("postService", PostService.class);
 
-    @GetMapping("posts")
-    public List<Post> Post() {
-        postService.write(new Post(0L, "00", "2022-01-26", "오늘 아침에 일찍 일어났어용"));
-        postService.write(new Post(1L, "01", "2022-01-26", "운동하고 돌아왔습니다"));
-        postService.write(new Post(2L, "00", "2022-01-26", "오늘 공부 끝!!!"));
-        return postService.read(0L, 2L);
+    public Long lastId = 2L;
+    public String redirect = "<meta http-equiv=\"refresh\" content=\"0;url=/main\">";
+
+    @GetMapping("/post") //메인 페이지 글 읽기
+    public List<Post> readPosts() {
+        return postService.read(0L, lastId);
+    }
+
+    @GetMapping("/post/{id}") //세부 페이지 글 읽기
+    public Post readOnePost(@PathVariable("id") Long postId){
+        return postService.read(postId);
+    }
+
+    @PostMapping("/post") //새 게시글 작성
+    public String writePost(Post post) {
+        post.setId(++lastId);
+        postService.write(post);
+        return redirect;
+    }
+
+    @DeleteMapping("/post/{id}") //게시글 삭제
+    public String deletePost(@PathVariable("id") Long postId) {
+        postService.delete(postId);
+        return "redirect:/";
+    }
+
+    @PostMapping("/post/{id}") //게시글 수정
+    public String modifyPost(Post post) {
+        postService.modify(post.getId(), post.getContents());
+        return redirect;
     }
 }
