@@ -1,6 +1,17 @@
 package com.baseurak.AwesomeGreat.member;
 
-public interface MemberService {
-    void join(Member member);
-    Member findMember(String memberId);
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberService {
+    @Autowired
+    private MemberRepository memberRepository;
+
+    public Member findUser(Member member){ return memberRepository.findByUserId(member.getId()); }
+
+    public void CreateUser(Member member){ memberRepository.save(member); }
+
+    public void deleteUser(String userId) { memberRepository.deleteById(userId); }
+
 }

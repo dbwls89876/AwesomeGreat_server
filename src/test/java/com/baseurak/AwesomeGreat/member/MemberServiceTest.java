@@ -20,8 +20,8 @@ public class MemberServiceTest {
         Member member = new Member("00", "123");
 
         //when
-        memberService.join(member);
-        Member findMember = memberService.findMember("00");
+//        memberService.join(member);
+        Member findMember = memberService.findUser(member);
 
         //then
         Assertions.assertThat(member).isEqualTo(findMember);

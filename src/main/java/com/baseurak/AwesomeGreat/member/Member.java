@@ -1,11 +1,24 @@
 package com.baseurak.AwesomeGreat.member;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Data
+@AllArgsConstructor
+@Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
+    private String userId;
     private String password;
 
-    public Member(String id, String password){
-        this.id = id;
+    @Builder
+    public Member(String userId, String password){
+        this.userId = userId;
         this.password = password;
     }
 
