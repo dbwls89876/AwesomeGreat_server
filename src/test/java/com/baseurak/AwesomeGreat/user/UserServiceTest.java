@@ -1,29 +1,29 @@
-package com.baseurak.AwesomeGreat.member;
+package com.baseurak.AwesomeGreat.user;
 
 import com.baseurak.AwesomeGreat.AppConfig;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class MemberServiceTest {
+public class UserServiceTest {
 
-    MemberService memberService;
+    UserService userService;
     @BeforeEach
     public void beforeEach(){
         AppConfig appConfig = new AppConfig();
-        memberService = appConfig.memberService();
+        //memberService = appConfig.memberService();
     }
 
     @Test
     void join() {
         //given
-        Member member = new Member("00", "123");
+        User user = new User("00", "123");
 
         //when
 //        memberService.join(member);
-        Member findMember = memberService.findUser(member);
+        User findMember = userService.findUser(user);
 
         //then
-        Assertions.assertThat(member).isEqualTo(findMember);
+        Assertions.assertThat(user).isEqualTo(findMember);
     }
 }

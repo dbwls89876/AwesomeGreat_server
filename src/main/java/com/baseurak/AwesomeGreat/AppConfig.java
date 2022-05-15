@@ -1,7 +1,5 @@
 package com.baseurak.AwesomeGreat;
 
-import com.baseurak.AwesomeGreat.member.MemberRepository;
-import com.baseurak.AwesomeGreat.member.MemberService;
 import com.baseurak.AwesomeGreat.post.MemoryPostRepository;
 import com.baseurak.AwesomeGreat.post.PostRepository;
 import com.baseurak.AwesomeGreat.post.PostService;

@@ -1,18 +1,17 @@
-package com.baseurak.AwesomeGreat.member;
+package com.baseurak.AwesomeGreat.user;
 
-import com.baseurak.AwesomeGreat.post.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class MemberController {
+public class UserController {
     @Autowired
-    MemberService memberService;
+    UserService userService;
 
     @PostMapping("/user")
-    public /*Message*/void CreateUser(Member member) {
-        memberService.CreateUser(member);
+    public /*Message*/void CreateUser(User user) {
+        userService.CreateUser(user);
 
 //        return message;
     }
