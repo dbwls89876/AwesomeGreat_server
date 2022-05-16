@@ -13,7 +13,9 @@ public class UserService implements UserDetailsService {
 
     public User findUser(User user){ return userRepository.findByUserId(user.getId()); }
 
-    public void CreateUser(User user){ userRepository.save(user); }
+    public void CreateUser(User user){
+        //userRepository.save(user);
+    }
 
     public void deleteUser(String userId) { userRepository.deleteById(userId); }
 

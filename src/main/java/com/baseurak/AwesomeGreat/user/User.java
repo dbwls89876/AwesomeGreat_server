@@ -6,15 +6,15 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.util.Collection;
 
 @Data
 @AllArgsConstructor
-@Entity
+//@Entity
 public class User implements UserDetails {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String userId;
     private String password;
