@@ -2,7 +2,9 @@ package com.baseurak.AwesomeGreat.login;
 
 import com.baseurak.AwesomeGreat.user.User;
 import com.baseurak.AwesomeGreat.user.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LoginService {
     private UserRepository userRepository;
 
