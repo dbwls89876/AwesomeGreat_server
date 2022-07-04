@@ -36,16 +36,9 @@ public class CommentRepositoryImpl implements CommentRepository {
     }
 
     @Override
-    public Comment readOne(Long commentId) {
-        Comment findComment = em.find(Comment.class, commentId);
-        return findComment;
-    }
-
-    @Override
-    public void update(Comment comment) {
-        Long commentId = comment.getId();
+    public void update(Long commentId, String contents) {
         Comment findPost = em.find(Comment.class, commentId);
-        findPost.setContent(comment.getContent());
+        findPost.setContent(contents);
     }
 
     @Override

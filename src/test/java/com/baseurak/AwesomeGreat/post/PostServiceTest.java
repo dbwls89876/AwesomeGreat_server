@@ -23,7 +23,7 @@ class PostServiceTest {
     @Test
     void write() {
         //given
-        Post post = new Post(0L, "00", "2022-02-23","안녕하세요!");
+        Post post = new Post(0L, 0L, "2022-02-23","안녕하세요!", 0);
 
         //when
         postService.write(post);
