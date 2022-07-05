@@ -29,7 +29,7 @@ public class JpaPostRepository implements PostRepository{
 
     @Override
     public List<Post> read(Long postId, int cnt) {
-        String jpql = "SELECT p FROM Post p WHERE p.id >= :postId";
+        String jpql = "SELECT p FROM Post p WHERE p.id <= :postId ORDER BY p.id desc";
         TypedQuery<Post> query = em.createQuery(jpql, Post.class)
                 .setParameter("postId", postId)
                 .setMaxResults(cnt);
