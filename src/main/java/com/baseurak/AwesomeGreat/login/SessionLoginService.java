@@ -1,9 +1,7 @@
 package com.baseurak.AwesomeGreat.login;
 
-import com.baseurak.AwesomeGreat.post.PostRepository;
 import com.baseurak.AwesomeGreat.user.User;
 import com.baseurak.AwesomeGreat.user.UserRepository;
-import org.springframework.stereotype.Service;
 
 //@Service
 public class SessionLoginService {
@@ -20,7 +18,7 @@ public class SessionLoginService {
         } else {
             return null;
         }*/
-        return userRepository.findByUserId(loginId);
+        return userRepository.findByPersonalId(loginId);
                 //.filter(m -> m.getPassword().equals(password))
                 //orElse(null);
     }

@@ -26,10 +26,10 @@ public class JwtManager {
      * @return String JWT 토큰
      */
     public String generateJwtToken(User user) {
-        log.info(user.getUserId());
+        log.info(user.getPersonalId());
         Date now = new Date();
         return Jwts.builder()
-                .setSubject(user.getUserId()) // 보통 username
+                .setSubject(user.getPersonalId()) // 보통 username
                 .setHeader(createHeader())
                 .setClaims(createClaims(user)) // 클레임, 토큰에 포함될 정보
                 .setExpiration(new Date(now.getTime() + expiredTime)) // 만료일
@@ -52,8 +52,8 @@ public class JwtManager {
      * @param user*/
     private Map<String, Object> createClaims(User user) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("userId", user.getUserId()); // username
-        claims.put("roles", user.getRoll()); // 인가정보
+        claims.put("userId", user.getPersonalId()); // username
+        claims.put("roles", user.getRole()); // 인가정보
         return claims;
     }
 

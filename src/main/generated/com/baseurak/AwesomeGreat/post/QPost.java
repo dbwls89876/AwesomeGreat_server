@@ -25,7 +25,7 @@ public class QPost extends EntityPathBase<Post> {
 
     public final NumberPath<Integer> report = createNumber("report", Integer.class);
 
-    public final StringPath uploadDate = createString("uploadDate");
+    public final DateTimePath<java.sql.Timestamp> uploadDate = createDateTime("uploadDate", java.sql.Timestamp.class);
 
     public final NumberPath<Long> userId = createNumber("userId", Long.class);
 

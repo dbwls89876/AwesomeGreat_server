@@ -13,7 +13,7 @@ public class LoginService {
     }
 
     public User login(String loginId, String password) {
-        User findUser = userRepository.findByUserId(loginId);
+        User findUser = userRepository.findByPersonalId(loginId);
         if (findUser == null) { return null; }
         else { return findUser; }
     }

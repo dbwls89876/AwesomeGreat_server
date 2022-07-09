@@ -4,27 +4,29 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 //import javax.persistence.*;
 
 @Data
-//@AllArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userId;
+    private String personalId;
     private String password;
-    private UserRole roll;
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+    private int demerit;
+
+    public User(){}
 
     @Builder
-    public User(String userId, String password){
-        this.userId = userId;
+    public User(String personalId, String password){
+        this.personalId = personalId;
         this.password = password;
     }
 }

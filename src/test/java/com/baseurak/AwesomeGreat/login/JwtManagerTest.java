@@ -27,7 +27,7 @@ class JwtManagerTest {
         LocalDateTime now = LocalDateTime.now();
         final User user =
                 User.builder()
-                        .userId("hong01")
+                        .personalId("hong01")
                         .password("1234")
                         .build();
         log.info("userId = {}", user.getId());

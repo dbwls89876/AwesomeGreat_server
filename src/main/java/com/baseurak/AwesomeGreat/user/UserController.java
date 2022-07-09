@@ -16,7 +16,7 @@ public class UserController {
 
     @PostMapping("/user")
     public /*Message*/void createUser(User user) {
-        log.info("ID:{} PASSWORD:{}", user.getId(), user.getPassword());
+        log.info("ID:{} PASSWORD:{}", user.getPersonalId(), user.getPassword());
         userService.createUser(user);
 
 //        return message;
