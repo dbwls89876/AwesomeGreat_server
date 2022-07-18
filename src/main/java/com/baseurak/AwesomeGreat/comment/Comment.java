@@ -15,6 +15,7 @@ public class Comment {
     private Long postId;
     private Long userId;
     private Timestamp uploadDate;
+    private String nickname;
     private String content;
     private int report;
 

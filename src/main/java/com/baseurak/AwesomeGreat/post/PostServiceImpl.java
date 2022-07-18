@@ -1,5 +1,6 @@
 package com.baseurak.AwesomeGreat.post;
 
+import com.baseurak.AwesomeGreat.nickname.NicknameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,16 +20,14 @@ import java.util.List;
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
-
-//    public PostServiceImpl(PostRepository postRepository) {
-//        this.postRepository = postRepository;
-//    }
+    private final NicknameService nicknameService;
 
     @Override
     public void write(Post post) {
         LocalDateTime now = LocalDateTime.now();
         post.setUploadDate(Timestamp.valueOf(now));
         post.setUserId(0L);
+        post.setNickname(nicknameService.makeNickname());
         post.setReport(0);
         postRepository.create(post);
     }
