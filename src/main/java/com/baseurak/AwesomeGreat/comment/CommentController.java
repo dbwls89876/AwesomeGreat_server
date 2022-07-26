@@ -24,9 +24,12 @@ public class CommentController {
     }
 
     @PostMapping("/comment") //새 댓글 작성
-    public String writePost(Comment comment) {
-        log.info(comment.toString());
+    public String writePost(Long postId, String content) {
+        Comment comment = new Comment();
+        comment.setPostId(postId);
+        comment.setContent(content);
         commentService.write(comment);
+        log.info(comment.toString());
         return redirect(comment.getPostId());
     }
 

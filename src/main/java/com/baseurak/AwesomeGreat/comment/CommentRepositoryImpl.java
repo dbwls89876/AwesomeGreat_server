@@ -46,4 +46,16 @@ public class CommentRepositoryImpl implements CommentRepository {
         Comment findComment = em.find(Comment.class, commentId);
         em.remove(findComment);
     }
+
+    @Override
+    public String findNickname(Long postId, Long userId){
+        String jpql = "SELECT c FROM Comment AS c WHERE c.postId = :postId AND c.userId = :userId";
+        TypedQuery<Comment> query = em.createQuery(jpql, Comment.class);
+        query.setParameter("postId", postId);
+        query.setParameter("userId", userId);
+
+        List<Comment> resultList = query.getResultList();
+        if (resultList.isEmpty()) return null;
+        return resultList.get(0).getNickname();
+    }
 }

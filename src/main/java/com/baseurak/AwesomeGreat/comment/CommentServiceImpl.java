@@ -20,7 +20,11 @@ public class CommentServiceImpl implements CommentService {
         LocalDateTime now = LocalDateTime.now();
         comment.setUploadDate(Timestamp.valueOf(now));
         comment.setUserId(0L);
-        comment.setNickname(nicknameService.makeNickname());
+
+        String nickname = commentRepository.findNickname(comment.getPostId(), comment.getUserId());
+        if (nickname == null) nickname = nicknameService.makeNickname();
+        comment.setNickname(nickname);
+
         comment.setReport(0);
         comment.setId(null);
         commentRepository.create(comment);

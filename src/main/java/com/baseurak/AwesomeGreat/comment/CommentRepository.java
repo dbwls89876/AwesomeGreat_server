@@ -6,4 +6,5 @@ public interface CommentRepository {
     List<Comment> read(Long postId);
     void update(Long commentId, String contents);
     void delete(Long commentId);
+    String findNickname(Long commentId, Long userId);
 }

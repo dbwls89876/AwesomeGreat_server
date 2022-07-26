@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface NicknameRepository  extends JpaRepository<Nickname, String> {
     List<Nickname> findBySequence(int sequence);
+
 }
