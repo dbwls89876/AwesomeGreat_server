@@ -24,6 +24,7 @@ public class JpaPostRepository implements PostRepository{
 
     @Override
     public void create(Post post) {
+        log.info("post: {}", post.toString());
         em.persist(post);
     }
 

@@ -37,7 +37,7 @@ public class PostController {
     @PostMapping("/post") //새 게시글 작성
     public String writePost(Long userId, String content) {
         Post post = new Post();
-        post.setId(userId);
+        post.setUserId(userId);
         post.setContent(content);
         postService.write(post);
         return redirect;
@@ -51,7 +51,7 @@ public class PostController {
 
     @PutMapping("/post") //게시글 수정
     public String modifyPost(Long postId, String content) {
-        log.info("postId = {} , content = {}", postId, content);
+        //log.info("postId = {} , content = {}", postId, content);
         postService.modify(postId, content);
         return redirect;
     }
